@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Student Table</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-info">
+                                <th>
+                                    TC No
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Surname
+                                </th>
+                                <th>
+                                    Lesson
+                                </th>
+                                <th>
+                                    Grade
+                                </th>
+                                <th>
+                                    Phone
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let student of students">
+                                    <td>
+                                        {{student.student_tc}}
+                                    </td><td>
+                                        {{student.student_name}}
+                                    </td>
+                                    <td>
+                                        {{student.student_surname}}
+                                    </td>
+                                    <td>
+                                        {{student.student_lesson}}
+                                    </td>
+                                    <td *ngIf="!Edit">
+                                        {{student.student_grade}}
+                                    </td>
+                                    <input matInput placeholder="Grade" type="number" formControlName="Grade"  *ngIf="Edit">
+                                    <td>
+                                        {{student.student_phone}}
+                                    </td>
+                                    <td>
+                                        {{student.student_email}}
+                                    </td>
+
+                                    <button *ngIf="Edit" type="submit" class="btn btn-danger pull-right" (click)="clickEdit()">delete</button>
+
+
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button *ngIf="!Edit" type="submit" class="btn btn-info pull-right" (click)="clickEdit()">Edit Student Exam Grade</button>
+                    <button *ngIf="Edit"  type="submit" class="btn btn-info pull-danger" (click)="clickSave()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
